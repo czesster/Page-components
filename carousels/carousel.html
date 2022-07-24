@@ -85,6 +85,7 @@
 
       .container {
         list-style: none;
+        transform: translate(0%);
       }
 
       .slide {
@@ -102,13 +103,13 @@
       }
 
       .slide-1 {
-        transform: translateX(-100%);
+        transform: translate(-100%);
       }
       .slide-2 {
-        transform: translateX(0%);
+        transform: translate(0%);
       }
       .slide-3 {
-        transform: translateX(100%);
+        transform: translate(100%);
       }
 
       /* DOTS */
@@ -186,25 +187,55 @@
         </ul>
       </div>
       <div class="dots">
-        <button class="dot dot--active"></button>
         <button class="dot"></button>
+        <button class="dot dot--active"></button>
         <button class="dot"></button>
       </div>
     </div>
 
     <script>
+      "use strict";
       const arrowBtnLeft = document.querySelector(".btn-arrow-left");
       const arrowBtnRight = document.querySelector(".btn-arrow-right");
-      const dot = document.querySelectorAll(".dot");
 
+      const dot = document.querySelectorAll(".dot");
+      // //////////////////////////////////////////////////////////////////////
+      // Arrow change slides
+      let init = 0;
+      const amountToMove = 100;
+      const container = document.querySelector(".container");
+      const slides = document.querySelectorAll(".slide");
+
+      const switchSlide = (direction) => {
+        container.style.transform =
+          "translate(" +
+          `${
+            direction === "left"
+              ? (init += amountToMove)
+              : (init -= amountToMove)
+          }` +
+          "%)";
+      };
+      arrowBtnLeft.addEventListener("click", () => {
+        switchSlide("left");
+      });
+      arrowBtnRight.addEventListener("click", () => {
+        switchSlide("right");
+      });
+      // //////////////////////////////////////////////////////////////////////
+
+      // //////////////////////////////////////////////////////////////////////
       // Removing active state from other buttons
       const removeActiveState = () => {
         for (let i = 0; i < dot.length; i++) {
           dot[i].classList.remove("dot--active");
         }
       };
+      // //////////////////////////////////////////////////////////////////////
 
-      // Arrow logic
+      arrowBtnRight.addEventListener("click", () => {});
+
+      // Arrow change indicator states
       arrowBtnLeft.addEventListener("click", () => {
         for (let i = 0; i < dot.length; i++) {
           if (dot.item(i).classList.contains("dot--active")) {
