@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Features</title>
     <style>
       * {
@@ -13,25 +20,31 @@
       }
       html {
         font-size: 62.5%;
-        font-family: sans-serif;
+        font-family: "Lato", sans-serif;
       }
       body {
-        display: flex;
-        justify-content: center;
+        margin: 14rem;
 
         background-color: #eee;
         color: #000;
         padding-top: 100px;
       }
 
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        color: rgba(9, 146, 105, 0.8);
+      }
+
       .features {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        width: 90rem;
 
-        row-gap: 1rem;
-        column-gap: 1rem;
+        width: 90rem;
+        column-gap: 2rem;
       }
 
       .item {
@@ -49,14 +62,8 @@
         top: -1rem;
       }
 
-      .item1,
-      .item4,
-      .item3 {
-        grid-row: span 2;
-      }
-
       .item-photo {
-        width: 30rem;
+        width: 100%;
         align-self: center;
       }
 
@@ -75,12 +82,13 @@
 
       .item-title {
         font-size: 2.4rem;
+        font-weight: 400;
       }
 
       .item-text {
         font-size: 1.6rem;
-        font-weight: 500;
-        line-height: 1.2;
+        font-weight: 300;
+        line-height: 1.3;
         padding: 0 2rem;
         margin-bottom: 2rem;
       }
@@ -97,13 +105,30 @@
     </style>
   </head>
   <body>
+    <h1>Most viewed articles</h1>
     <div class="features">
-      <div class="item item1">item 1</div>
-      <div class="item item2">item 2</div>
-      <div class="item item3">
+      <div class="item item1">
         <img
           class="item-photo"
-          src="./features1-img/chatbot.jpg"
+          src="./features2-img/iphone.jpg"
+          alt=""
+          srcset=""
+        />
+        <div class="item-header">
+          <ion-icon class="item-icon" name="bulb-outline"></ion-icon>
+          <h3 class="item-title">Brilliant feature</h3>
+        </div>
+        <p class="item-text">
+          New feature introduced in iphone 13 responsible for huge growth of
+          postivie user reviews. Ihpone higher than ever!
+        </p>
+        <a class="item-link" href="#">Click to see by yourself &rarr;</a>
+      </div>
+
+      <div class="item item2">
+        <img
+          class="item-photo"
+          src="./features2-img/css.jpg"
           alt=""
           srcset=""
         />
@@ -121,9 +146,28 @@
         </p>
         <a class="item-link" href="#">Click to see by yourself &rarr;</a>
       </div>
-      <div class="item item4">item 4</div>
-      <div class="item item5">item 5</div>
-      <div class="item item6"></div>
+
+      <div class="item item3">
+        <img
+          class="item-photo"
+          src="./features2-img/chatbot.jpg"
+          alt=""
+          srcset=""
+        />
+        <div class="item-header">
+          <ion-icon
+            class="item-icon"
+            name="chatbubble-ellipses-outline"
+          ></ion-icon>
+          <h3 class="item-title">A chat bot</h3>
+        </div>
+        <p class="item-text">
+          In this article you will get to know how chatbots are created and what
+          logic hides behind interface seen by the user. You won't believe in
+          what you will see!
+        </p>
+        <a class="item-link" href="#">Click to see by yourself &rarr;</a>
+      </div>
     </div>
 
     <script
