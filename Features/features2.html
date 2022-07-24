@@ -51,15 +51,15 @@
         display: flex;
         flex-direction: column;
 
-        background-image: linear-gradient(to right bottom, #dee2e6, #ced4da);
+        background-image: linear-gradient(to right bottom, #dee2e6, #dbdbdb);
+        box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
         overflow: hidden;
         border-radius: 30px;
-        transition: all 1s;
+        transition: all 0.3s;
       }
 
       .item:hover {
-        position: relative;
-        top: -1rem;
+        transform: translateY(-1.1rem);
       }
 
       .item-photo {
@@ -102,6 +102,12 @@
         text-decoration: underline #099268;
         color: #099268;
       }
+
+      .item-link:hover,
+      .item-link:active {
+        color: #3aa886;
+        text-decoration: underline #3aa886;
+      }
     </style>
   </head>
   <body>
@@ -111,8 +117,7 @@
         <img
           class="item-photo"
           src="./features2-img/iphone.jpg"
-          alt=""
-          srcset=""
+          alt="iphone 13 laying between plants on steel rail"
         />
         <div class="item-header">
           <ion-icon class="item-icon" name="bulb-outline"></ion-icon>
@@ -128,21 +133,17 @@
       <div class="item item2">
         <img
           class="item-photo"
-          src="./features2-img/css.jpg"
-          alt=""
-          srcset=""
+          src="./features2-img/drone.jpg"
+          alt="small drone photo catched mid-air"
         />
         <div class="item-header">
-          <ion-icon
-            class="item-icon"
-            name="chatbubble-ellipses-outline"
-          ></ion-icon>
-          <h3 class="item-title">A chat bot</h3>
+          <ion-icon class="item-icon" name="wallet-outline"></ion-icon>
+          <h3 class="item-title">Cheap drones</h3>
         </div>
         <p class="item-text">
-          In this article you will get to know how chatbots are created and what
-          logic hides behind interface seen by the user. You won't believe in
-          what you will see!
+          Ever wanted to have drone? Now it's best time to buy yourself one. Due
+          to bancruptcy of one og the biggest drone selling company Drone.io all
+          of their products are 50% off.
         </p>
         <a class="item-link" href="#">Click to see by yourself &rarr;</a>
       </div>
@@ -151,8 +152,7 @@
         <img
           class="item-photo"
           src="./features2-img/chatbot.jpg"
-          alt=""
-          srcset=""
+          alt="hand holding phone with whatsapp converstaion"
         />
         <div class="item-header">
           <ion-icon
@@ -162,9 +162,9 @@
           <h3 class="item-title">A chat bot</h3>
         </div>
         <p class="item-text">
-          In this article you will get to know how chatbots are created and what
-          logic hides behind interface seen by the user. You won't believe in
-          what you will see!
+          Ever wondered how chatbots works under the hood and what logic hides
+          behind interface seen by the user? You won't believe in what you will
+          see!
         </p>
         <a class="item-link" href="#">Click to see by yourself &rarr;</a>
       </div>
