@@ -23,8 +23,6 @@
         font-family: "Lato", sans-serif;
       }
       body {
-        margin: 14rem;
-
         background-color: #eee;
         color: #000;
         padding-top: 100px;
@@ -35,16 +33,23 @@
         font-weight: 700;
         letter-spacing: 2px;
         text-transform: uppercase;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         color: rgba(9, 146, 105, 0.8);
+      }
+
+      .articles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .features {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
 
-        width: 90rem;
+        max-width: 90rem;
         column-gap: 2rem;
+        row-gap: 2rem;
       }
 
       .item {
@@ -114,67 +119,77 @@
         color: #3aa886;
         text-decoration: underline #3aa886;
       }
+
+      @media (max-width: 900px) {
+        .features {
+          grid-template-columns: 1fr;
+          max-width: 30rem;
+
+          /* IS IT GOOD? */
+          transition: all 0.1s;
+        }
+      }
     </style>
   </head>
   <body>
-    <h1>Most viewed articles</h1>
-    <div class="features">
-      <div class="item item1">
-        <img
-          class="item-photo"
-          src="./features2-img/iphone.jpg"
-          alt="iphone 13 laying between plants on steel rail"
-        />
-        <div class="item-header">
-          <ion-icon class="item-icon" name="bulb-outline"></ion-icon>
-          <h3 class="item-title">Brilliant feature</h3>
+    <section class="articles">
+      <h1>Most viewed articles</h1>
+      <div class="features">
+        <div class="item item1">
+          <img
+            class="item-photo"
+            src="./features2-img/iphone.jpg"
+            alt="iphone 13 laying between plants on steel rail"
+          />
+          <div class="item-header">
+            <ion-icon class="item-icon" name="bulb-outline"></ion-icon>
+            <h3 class="item-title">Brilliant feature</h3>
+          </div>
+          <p class="item-text">
+            New feature introduced in iphone 13 responsible for huge growth of
+            postive user reviews. Apple once again crashes the jackpot!
+          </p>
+          <a class="item-link" href="#">Click to see by yourself &rarr;</a>
         </div>
-        <p class="item-text">
-          New feature introduced in iphone 13 responsible for huge growth of
-          postive user reviews. Apple once again crashes the jackpot!
-        </p>
-        <a class="item-link" href="#">Click to see by yourself &rarr;</a>
-      </div>
-
-      <div class="item item2">
-        <img
-          class="item-photo"
-          src="./features2-img/drone.jpg"
-          alt="small drone photo catched mid-air"
-        />
-        <div class="item-header">
-          <ion-icon class="item-icon" name="wallet-outline"></ion-icon>
-          <h3 class="item-title">Cheap drones</h3>
+        <div class="item item2">
+          <img
+            class="item-photo"
+            src="./features2-img/drone.jpg"
+            alt="small drone photo catched mid-air"
+          />
+          <div class="item-header">
+            <ion-icon class="item-icon" name="wallet-outline"></ion-icon>
+            <h3 class="item-title">Cheap drones</h3>
+          </div>
+          <p class="item-text">
+            Ever wanted to have drone? Now it's best time to buy yourself one.
+            Due to bancruptcy, one of the biggest drone company is selling their
+            products for half of the normal price.
+          </p>
+          <a class="item-link" href="#">Click to see by yourself &rarr;</a>
         </div>
-        <p class="item-text">
-          Ever wanted to have drone? Now it's best time to buy yourself one. Due
-          to bancruptcy, one of the biggest drone company is selling their
-          products for half of the normal price.
-        </p>
-        <a class="item-link" href="#">Click to see by yourself &rarr;</a>
-      </div>
-
-      <div class="item item3">
-        <img
-          class="item-photo"
-          src="./features2-img/chatbot.jpg"
-          alt="hand holding phone with whatsapp converstaion"
-        />
-        <div class="item-header">
-          <ion-icon
-            class="item-icon"
-            name="chatbubble-ellipses-outline"
-          ></ion-icon>
-          <h3 class="item-title">A chat bot</h3>
+        <div class="item item3">
+          <img
+            class="item-photo"
+            src="./features2-img/chatbot.jpg"
+            alt="hand holding phone with whatsapp converstaion"
+          />
+          <div class="item-header">
+            <ion-icon
+              class="item-icon"
+              name="chatbubble-ellipses-outline"
+            ></ion-icon>
+            <h3 class="item-title">A chat bot</h3>
+          </div>
+          <p class="item-text">
+            Ever wondered how chatbots works under the hood and what logic hides
+            behind interface seen by the user? You won't believe in what you
+            will see!
+          </p>
+          <a class="item-link" href="#">Click to see by yourself &rarr;</a>
         </div>
-        <p class="item-text">
-          Ever wondered how chatbots works under the hood and what logic hides
-          behind interface seen by the user? You won't believe in what you will
-          see!
-        </p>
-        <a class="item-link" href="#">Click to see by yourself &rarr;</a>
       </div>
-    </div>
+    </section>
 
     <script
       type="module"
