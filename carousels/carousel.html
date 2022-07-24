@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+        font-family: sans-serif;
+      }
+
+      body {
+        background-color: #eee;
+        color: #fff;
+      }
+
+      h1 {
+        font-size: 4.8rem;
+      }
+
+      .carousel {
+        width: 80rem;
+        margin: 20rem auto;
+        position: relative;
+      }
+
+      /* CONTROLS */
+      .btn-arrow {
+        width: 3.6rem;
+        height: 3.6rem;
+        background-color: #fff;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 4.8rem 0.1rem;
+        cursor: pointer;
+        position: absolute;
+        transform: translate(-50%, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+
+      .btn-arrow:hover,
+      .btn-arrow:active {
+        background-color: #e6e6e6;
+      }
+
+      .btn-arrow-left {
+        top: 48%;
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn-arrow-right {
+        top: 48%;
+        right: 0;
+        transform: translate(50%, -50%);
+      }
+
+      .icon {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      /* SLIDES */
+      .inner {
+        position: relative;
+        width: 80rem;
+        height: 36rem;
+        background-color: #6a0f81;
+        border-radius: 30px;
+        align-self: center;
+        overflow: hidden;
+      }
+
+      .container {
+        list-style: none;
+      }
+
+      .slide {
+        /* === TO CENTER TEXT === */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* ====================== */
+
+        position: absolute;
+        background-color: #992bb4;
+        padding: 4rem;
+        width: 80rem;
+        height: 36rem;
+      }
+
+      .slide-1 {
+        transform: translateX(-100%);
+      }
+      .slide-2 {
+        transform: translateX(0%);
+      }
+      .slide-3 {
+        transform: translateX(100%);
+      }
+
+      /* DOTS */
+      .dots {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .dot {
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 50%;
+        border: none;
+        background-color: #6a0f81;
+        cursor: pointer;
+      }
+
+      .dot:hover {
+        background-color: #992bb4;
+      }
+
+      .dot--active {
+        background-color: #992bb4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <button class="btn-arrow btn-arrow-left">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+      </button>
+      <button class="btn-arrow btn-arrow-right">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
+      </button>
+      <div class="inner">
+        <ul class="container">
+          <li class="slide slide-1">
+            <h1>SLIDE 1</h1>
+          </li>
+          <li class="slide slide-2">
+            <h1>SLIDE 2</h1>
+          </li>
+          <li class="slide slide-3">
+            <h1>SLIDE 3</h1>
+          </li>
+        </ul>
+      </div>
+      <div class="dots">
+        <button class="dot dot--active"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+      </div>
+    </div>
+
+    <script>
+      const arrowBtnLeft = document.querySelector(".btn-arrow-left");
+      const arrowBtnRight = document.querySelector(".btn-arrow-right");
+      const dot = document.querySelectorAll(".dot");
+
+      // Removing active state from other buttons
+      const removeActiveState = () => {
+        for (let i = 0; i < dot.length; i++) {
+          dot[i].classList.remove("dot--active");
+        }
+      };
+
+      // Arrow logic
+      arrowBtnLeft.addEventListener("click", () => {
+        for (let i = 0; i < dot.length; i++) {
+          if (dot.item(i).classList.contains("dot--active")) {
+            removeActiveState();
+            if (i === 0) {
+              dot.item(dot.length - 1).classList.add("dot--active");
+              break;
+            } else {
+              dot.item(i - 1).classList.add("dot--active");
+            }
+          }
+        }
+      });
+
+      arrowBtnRight.addEventListener("click", () => {
+        for (let i = 0; i < dot.length; i++) {
+          if (dot.item(i).classList.contains("dot--active")) {
+            removeActiveState();
+            if (i === dot.length - 1) {
+              dot.item(0).classList.add("dot--active");
+            } else {
+              dot.item(i + 1).classList.add("dot--active");
+              break;
+            }
+          }
+        }
+      });
+
+      // Active dot toggling
+      dot[0].addEventListener("click", () => {
+        removeActiveState();
+        dot[0].classList.add("dot--active");
+      });
+
+      dot[1].addEventListener("click", () => {
+        removeActiveState();
+        dot[1].classList.add("dot--active");
+      });
+
+      dot[2].addEventListener("click", () => {
+        removeActiveState();
+        dot[2].classList.add("dot--active");
+      });
+    </script>
+  </body>
+</html>
