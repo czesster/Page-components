@@ -25,7 +25,9 @@
       }
       body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
 
         background-color: #eee;
         color: #fff;
@@ -39,10 +41,24 @@
         cursor: pointer;
       }
 
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        align-self: flex-start;
+        text-transform: uppercase;
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+        color: rgba(8, 127, 91, 0.397);
+      }
+
       .features {
         display: flex;
         gap: 1rem;
-        transition: all 0.1s;
+        /* overflow-x: scroll;
+        padding: 4rem 4rem 0 4rem; */
       }
 
       .item {
@@ -161,34 +177,60 @@
     </style>
   </head>
   <body>
-    <div class="features">
-      <div class="item">item 1</div>
-      <div class="item">item 2</div>
-      <div class="item">item 3</div>
-      <div class="item">item 4</div>
-      <div class="item">item 5</div>
-      <div class="item">
-        <h4 class="article-date">
-          <span class="article-type"> Article </span>
-          on May 25th, 2022
-        </h4>
-        <h3 class="article-title">
-          <a href="" class="article-title-link a-destylizer"
-            >What happens to the ball go after human throws it?</a
-          >
-        </h3>
-        <div class="article-tags">
-          <a href="" class="article-tag-link"> Answer </a>
-          <a href="" class="article-tag-link"> Trending </a>
-          <a href="" class="article-tag-link"> Riddle-solved </a>
+    <div class="container">
+      <h1 class="header">Top 6 most viewed articles</h1>
+      <div class="features">
+        <div class="item">
+          <h4 class="article-date">
+            <span class="article-type"> Article </span>
+            on May 25th, 2022
+          </h4>
+          <h3 class="article-title">
+            <a href="#" class="article-title-link a-destylizer"
+              >What happens to the ball go after human throws it?</a
+            >
+          </h3>
+          <div class="article-tags">
+            <a href="#" class="article-tag-link"> Answer </a>
+            <a href="#" class="article-tag-link"> Trending </a>
+            <a href="#" class="article-tag-link"> Riddle-solved </a>
+          </div>
+          <div class="article-author-box">
+            <a href="#" class="img-link">
+              <img
+                src="./features1-img/dog.jpg"
+                alt="Picture of the article author"
+            /></a>
+            <a class="author" href="#">Dog Doggington</a>
+          </div>
         </div>
-        <div class="article-author-box">
-          <a href="#" class="img-link">
-            <img
-              src="./features1-img/dog.jpg"
-              alt="Picture of the article author"
-          /></a>
-          <a class="author" href="#">Dog Doggington</a>
+        <div class="item">item 2</div>
+        <div class="item">item 3</div>
+        <div class="item">item 4</div>
+        <div class="item">item 5</div>
+        <div class="item">
+          <h4 class="article-date">
+            <span class="article-type"> Article </span>
+            on May 25th, 2022
+          </h4>
+          <h3 class="article-title">
+            <a href="" class="article-title-link a-destylizer"
+              >What happens to the ball go after human throws it?</a
+            >
+          </h3>
+          <div class="article-tags">
+            <a href="#" class="article-tag-link"> Answer </a>
+            <a href="#" class="article-tag-link"> Trending </a>
+            <a href="#" class="article-tag-link"> Riddle-solved </a>
+          </div>
+          <div class="article-author-box">
+            <a href="#" class="img-link">
+              <img
+                src="./features1-img/dog.jpg"
+                alt="Picture of the article author"
+            /></a>
+            <a class="author" href="#">Dog Doggington</a>
+          </div>
         </div>
       </div>
     </div>
