@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Features</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      /* PO KLIKNIECIU ELEMENT ROZSZERZA SIE NA CALY EKRAN JAKO ARTYKUŁ ALA MODAL */
       * {
         margin: 0;
         padding: 0;
@@ -13,7 +21,7 @@
       }
       html {
         font-size: 62.5%;
-        font-family: sans-serif;
+        font-family: "Merriweather", serif;
       }
       body {
         display: flex;
@@ -24,19 +32,27 @@
         padding-top: 100px;
       }
 
+      .a-destylizer:link,
+      .a-destylizer:visited {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+      }
+
       .features {
         display: flex;
         gap: 1rem;
-        transition: all 0.3s;
+        transition: all 0.1s;
       }
 
       .item {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
 
-        width: 20rem;
-        height: 30rem;
+        padding: 3rem;
+
+        width: 30rem;
+        height: 40rem;
 
         background-image: linear-gradient(to bottom left, #12b886, #087f5b);
         /* box-shadow: 0 0 1.8rem rgba(0, 0, 0, 0.575); */
@@ -55,18 +71,127 @@
       .item:hover ~ .item {
         transform: translateX(5rem);
       }
+
+      .article-date {
+        font-size: 1.4rem;
+        font-weight: 300;
+        padding-bottom: 1.5rem;
+      }
+
+      .article-type {
+        font-weight: 400;
+      }
+
+      .article-title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.2;
+        padding-bottom: 3rem;
+      }
+
+      .article-title-link:hover,
+      .article-title-link:active {
+        color: #dee2e6;
+      }
+
+      .article-tags {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .article-tag-link:link,
+      .article-tag-link:visited {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 400;
+        color: #087f5b;
+        background-color: #fff;
+        padding: 0.3rem 0.9rem;
+        border: 1px solid #fff;
+        border-radius: 11px;
+
+        font-size: 1.6rem;
+      }
+
+      .article-tag-link:hover,
+      .article-tag-link:active {
+        color: #12b886;
+      }
+
+      .article-author-box {
+        margin-top: auto;
+
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+      }
+
+      .img-link img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .img-link {
+        transition: all 0.5s ease-out;
+      }
+
+      .img-link:hover {
+        transform: rotate(-25deg);
+      }
+
+      .article-author-box .author:link,
+      .article-author-box .author:visited {
+        text-decoration: none;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 400;
+        margin: 0 -0.25rem;
+        padding: 0 0.25rem;
+        transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .article-author-box .author:hover,
+      .article-author-box .author:active {
+        box-shadow: inset 18rem 0 0 0 #fff;
+        color: #12b886;
+      }
     </style>
   </head>
   <body>
     <div class="features">
-      <div class="item item1">item 1</div>
-      <div class="item item2">item 2</div>
-      <div class="item item3">item 3</div>
-      <div class="item item4">item 4</div>
-      <div class="item item5">item 5</div>
-      <div class="item item6">item 6</div>
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">
+        <h4 class="article-date">
+          <span class="article-type"> Article </span>
+          on May 25th, 2022
+        </h4>
+        <h3 class="article-title">
+          <a href="" class="article-title-link a-destylizer"
+            >What happens to the ball go after human throws it?</a
+          >
+        </h3>
+        <div class="article-tags">
+          <a href="" class="article-tag-link"> Answer </a>
+          <a href="" class="article-tag-link"> Trending </a>
+          <a href="" class="article-tag-link"> Riddle-solved </a>
+        </div>
+        <div class="article-author-box">
+          <a href="#" class="img-link">
+            <img
+              src="./features1-img/dog.jpg"
+              alt="Picture of the article author"
+          /></a>
+          <a class="author" href="#">Dog Doggington</a>
+        </div>
+      </div>
     </div>
-
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
