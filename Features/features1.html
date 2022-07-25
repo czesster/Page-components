@@ -20,79 +20,39 @@
         justify-content: center;
 
         background-color: #eee;
-        color: #000;
+        color: #fff;
         padding-top: 100px;
       }
 
       .features {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        width: 90rem;
-
-        row-gap: 1rem;
-        column-gap: 1rem;
+        display: flex;
+        gap: 2rem;
+        transition: all 0.3s;
       }
 
       .item {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        background-image: linear-gradient(to right bottom, #dee2e6, #ced4da);
-        overflow: hidden;
-        border-radius: 30px;
-        transition: all 1s;
+        width: 20rem;
+        height: 30rem;
+
+        background-image: linear-gradient(to bottom left, #fad1fa, #fddbfd);
+        box-shadow: 0 0 4.8rem rgba(0, 0, 0, 0.175);
+
+        border-radius: 20px;
+        margin-right: -6rem;
+        transition: all 0.3s;
       }
 
       .item:hover {
-        position: relative;
-        top: -1rem;
+        transform: translateY(-1.2rem);
+        /* transform: rotate(-20deg); */
       }
 
-      .item1,
-      .item4,
-      .item3 {
-        grid-row: span 2;
-      }
-
-      .item-photo {
-        width: 30rem;
-        align-self: center;
-      }
-
-      .item-header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin: 2rem 2rem;
-        gap: 1rem;
-      }
-
-      .item-icon {
-        width: 2.4rem;
-        height: 2.4rem;
-      }
-
-      .item-title {
-        font-size: 2.4rem;
-      }
-
-      .item-text {
-        font-size: 1.6rem;
-        font-weight: 500;
-        line-height: 1.2;
-        padding: 0 2rem;
-        margin-bottom: 2rem;
-      }
-
-      .item-link:link,
-      .item-link:visited {
-        display: inline-block;
-        font-size: 1.6rem;
-
-        padding: 1.6rem 2.4rem;
-        text-decoration: underline #099268;
-        color: #099268;
+      .item:hover .item:not(:hover) {
+        transform: translateX(-12rem);
       }
     </style>
   </head>
@@ -100,30 +60,10 @@
     <div class="features">
       <div class="item item1">item 1</div>
       <div class="item item2">item 2</div>
-      <div class="item item3">
-        <img
-          class="item-photo"
-          src="./features1-img/chatbot.jpg"
-          alt=""
-          srcset=""
-        />
-        <div class="item-header">
-          <ion-icon
-            class="item-icon"
-            name="chatbubble-ellipses-outline"
-          ></ion-icon>
-          <h3 class="item-title">A chat bot</h3>
-        </div>
-        <p class="item-text">
-          In this article you will get to know how chatbots are created and what
-          logic hides behind interface seen by the user. You won't believe in
-          what you will see!
-        </p>
-        <a class="item-link" href="#">Click to see by yourself &rarr;</a>
-      </div>
+      <div class="item item3">item 3</div>
       <div class="item item4">item 4</div>
       <div class="item item5">item 5</div>
-      <div class="item item6"></div>
+      <div class="item item6">item 6</div>
     </div>
 
     <script
