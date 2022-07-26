@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blink...</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 62.5%;
+        font-family: "Merriweather", serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #eee;
+        color: #fff;
+        padding-top: 200px;
+      }
+
+      :root {
+        --eyelidcolor: #eebb99;
+      }
+
+      .container {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .eye-container,
+      .eye {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 6rem;
+        height: 6rem;
+
+        border-radius: 50%;
+      }
+
+      .eye-container {
+        background-color: rgb(247, 247, 247);
+      }
+
+      .inner {
+        width: 2.4rem;
+        height: 2.4rem;
+        background-color: rgb(0, 0, 0);
+
+        border-radius: 50%;
+      }
+
+      .eye {
+        transform: translate(-1.8rem, -1.8rem);
+        background-color: transparent;
+        animation: blink 5s infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          border-top: 0.5rem solid var(--eyelidcolor);
+          border-bottom: 0.5rem solid var(--eyelidcolor);
+        }
+
+        025% {
+          border-top: 3rem solid var(--eyelidcolor);
+          border-bottom: 3rem solid var(--eyelidcolor);
+        }
+
+        50% {
+          border-top: 0.5rem solid var(--eyelidcolor);
+          border-bottom: 0.5rem solid var(--eyelidcolor);
+        }
+
+        75% {
+          border-top: 3rem solid var(--eyelidcolor);
+          border-bottom: 3rem solid var(--eyelidcolor);
+        }
+
+        100% {
+          border-top: 0.5rem solid var(--eyelidcolor);
+          border-bottom: 0.5rem solid var(--eyelidcolor);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="eye-container">
+        <div class="inner">
+          <div class="eye"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
