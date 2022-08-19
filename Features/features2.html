@@ -29,7 +29,7 @@
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 3rem;
         font-weight: 700;
         letter-spacing: 2px;
         text-transform: uppercase;
@@ -57,7 +57,7 @@
         flex-direction: column;
 
         background-image: linear-gradient(to right bottom, #dee2e6, #dbdbdb);
-        box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+        box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.507);
         overflow: hidden;
         border-radius: 30px;
         transition: all 0.3s;
@@ -109,7 +109,7 @@
         text-decoration: underline #099268;
         color: #099268;
 
-        /* SHOULDNT BE LIKE THIS */
+        /* stick link to the bottom of item */
         margin-top: auto;
       }
 
@@ -119,13 +119,48 @@
         text-decoration: underline #3aa886;
       }
 
-      @media (max-width: 900px) {
+      /* TABLETS */
+      @media (max-width: 950px) {
+        h1 {
+          font-size: 2.8rem;
+        }
+
+        .features {
+          grid-template-columns: 1fr 1fr;
+          max-width: 60rem;
+        }
+
+        .item1 {
+          grid-column: span 2;
+        }
+
+        .item-title {
+          font-size: 3rem;
+        }
+
+        .item-text {
+          font-size: 2rem;
+        }
+
+        .item-link:link,
+        .item-link:visited {
+          font-size: 2rem;
+        }
+      }
+
+      /* MOBILES */
+      @media (max-width: 650px) {
         .features {
           grid-template-columns: 1fr;
           max-width: 30rem;
+        }
 
-          /* IS IT GOOD? */
-          transition: all 0.1s;
+        .item1 {
+          grid-column: span 1;
+        }
+
+        h1 {
+          font-size: 2.4rem;
         }
       }
     </style>

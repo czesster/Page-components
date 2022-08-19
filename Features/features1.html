@@ -242,5 +242,21 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script>
+      "use strict";
+
+      // Select all article's titles
+      const linkArticle = Array.from(
+        document.querySelectorAll(".article-title-link")
+      );
+
+      // for every article title on click open modal window
+      linkArticle.forEach((element) => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault();
+          console.log("siemano");
+        });
+      });
+    </script>
   </body>
 </html>
