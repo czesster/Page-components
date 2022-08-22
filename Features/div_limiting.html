@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 10px;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        width: 7em;
+        border: thin solid black;
+        margin: 1em;
+      }
+
+      :not(.limiter) > div {
+        flex-basis: 0px;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div>
+          I'm longer and will scroll my overflow. in flow text in flow text in
+          flow text in flow text in flow text in flow text in flow text in flow
+          text in flow text in flow text in flow text in flow text in flow text
+          in flow text in flow text in flow text in flow text in flow text in
+          flow text in flow text in flow text in flow text in flow text in flow
+          text in flow text in
+        </div>
+      </section>
+
+      <section class="limiter">
+        <div>
+          Every parent's siblings match my height. in flow text in flow text in
+          flow text in flow text in flow text in flow text in flow text in flow
+          text in flow text in flow text in flow text in flow text in flow text
+          in flow text in flow text in flow text in flow text
+        </div>
+      </section>
+
+      <section>
+        <div>
+          I'm shorter but still match the height. in flow text in flow text in
+          flow text in flow text in flow text in flow text in flow text in flow
+          text in flow text
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
