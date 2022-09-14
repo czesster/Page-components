@@ -2,42 +2,138 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
 }
 
 html {
   font-size: 62.5%;
+  color: #fff;
 }
+
+/* ########################################### */
+/* BODY */
 
 .calculator {
   margin: 5rem auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
   width: 60rem;
-  height: 82rem;
+  /* height: 86rem; */
+
   background-color: #e9ecef;
+
   border-radius: 20px;
+  /* border: 0.1rem solid #c8ced4; */
+  box-shadow: 0 10px #c8ced4;
+}
+
+/* ########################################### */
+/* OUTPUT */
+
+.title {
+  margin: 2rem 0;
+
+  align-self: center;
+  justify-self: center;
+
+  font-size: 2rem;
+  color: #686868;
 }
 
 .output {
-  width: 90%;
+  margin-bottom: 4.8rem;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 85%;
   height: 20%;
+
   background-color: #ced4da;
+
   border-radius: 20px;
+  border: 0.4rem solid #c8ced4;
+
+  font-size: 8rem;
 }
 
+/* ########################################### */
+/* BUTTONS */
+
 .buttons {
+  margin-bottom: 3.6rem;
   display: grid;
-  grid-template-columns: 5;
-  grid-template-rows: 5;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  row-gap: 2rem;
+
   width: 90%;
-  height: 50%;
+  height: 70%;
+
   border-radius: 20px;
+
+  /* background-color: #ffc691; */
+}
+
+.btn {
+  width: 9rem;
+  height: 9rem;
+
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px #adb5bd;
+
+  color: inherit;
+  background-color: #ced4da;
+
+  font-size: 2.4rem;
+}
+
+.btn:hover {
+  background-color: #c8ced4;
+}
+.btn:active {
+  /* background-color: #686868; */
+  /* background-color: #ced4da; */
+  box-shadow: 0 4px #868e96;
+  transform: translateY(4px);
+}
+
+/* CERTAIN BUTTONS */
+.btn--2-row {
+  height: 22rem;
+  grid-row: span 2;
+}
+
+.btn--2-col {
+  width: 22rem;
+  grid-column: span 2;
+}
+
+.btn--clear {
   background-color: #ff922b;
 }
 
-.button {
-  width: 5rem;
-  height: 5rem;
+.btn--clear:hover {
+  background-color: #fd7e14;
+}
+
+.btn--res {
+  background-color: #686868;
+}
+
+.btn--res:hover {
+  background-color: #5a5a5a;
+}
+
+.btn--special {
+  font-size: 3rem;
 }
