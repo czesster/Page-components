@@ -54,7 +54,7 @@ html {
   align-items: center;
 
   width: 85%;
-  height: 20%;
+  height: 15rem;
 
   background-color: #ced4da;
 
@@ -84,6 +84,10 @@ html {
 }
 
 .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 9rem;
   height: 9rem;
 
@@ -136,4 +140,7 @@ html {
 
 .btn--special {
   font-size: 3rem;
+}
+.icon {
+  width: 3.2rem;
 }
