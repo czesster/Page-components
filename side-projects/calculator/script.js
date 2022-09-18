@@ -66,6 +66,16 @@ const substract = function () {
   }
 };
 
+const multiply = function () {
+  outputArray.push(output.innerHTML);
+  if (output.innerHTML != "0") {
+    output.innerHTML = "";
+    action = btnMultiply.innerHTML;
+
+    console.log(outputArray);
+  }
+};
+
 const displayResult = function () {
   // condition to disable diplaying NaN if accidentaly pressed "=" twice
   if (outputArray.length === 0) return;
@@ -78,8 +88,8 @@ const displayResult = function () {
 
   // ADD
   if (action === "+") {
-    let sum = 0;
-    for (let i = 0; i < outputArray.length; i++) {
+    let sum = outputArray[0] * 1;
+    for (let i = 1; i < outputArray.length; i++) {
       sum += outputArray[i] * 1;
       console.log(sum);
     }
@@ -89,11 +99,16 @@ const displayResult = function () {
   } else if (action === "/") {
     // round to 2 places after coma
     // fix to work on few divide btn clicks
-    output.innerHTML = ((outputArray[0] * 1) / outputArray[1]) * 1;
+    let div = outputArray[0] * 1;
+    console.log(div);
+    for (let i = 1; i < outputArray.length; i++) {
+      div /= outputArray[i] * 1;
+    }
+    output.innerHTML = div;
 
     // SUBSTRACT
   } else if (action === "-") {
-    let sub = outputArray[0];
+    let sub = outputArray[0] * 1;
     console.log(sub);
     for (let i = 1; i < outputArray.length; i++) {
       sub -= outputArray[i] * 1;
@@ -102,6 +117,12 @@ const displayResult = function () {
 
     // MULTIPLY
   } else if (action === "x") {
+    let mul = outputArray[0] * 1;
+    console.log(mul);
+    for (let i = 1; i < outputArray.length; i++) {
+      mul *= outputArray[i] * 1;
+    }
+    output.innerHTML = mul;
   }
 
   //   clear array for new operations
@@ -125,6 +146,7 @@ btns.forEach((btn) =>
 btnPlus.addEventListener("click", add);
 btnDivide.addEventListener("click", divide);
 btnMinus.addEventListener("click", substract);
+btnMultiply.addEventListener("click", multiply);
 
 btnResult.addEventListener("click", displayResult);
 
