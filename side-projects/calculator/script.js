@@ -37,11 +37,30 @@ let action;
 //   });
 // };
 
-const add = function (arr) {
+const add = function () {
   outputArray.push(output.innerHTML);
   if (output.innerHTML != "0") {
     output.innerHTML = "";
     action = btnPlus.innerHTML;
+    console.log(outputArray);
+  }
+};
+
+const divide = function () {
+  outputArray.push(output.innerHTML);
+  if (output.innerHTML != "0") {
+    output.innerHTML = "";
+    action = btnDivide.innerHTML;
+
+    console.log(outputArray);
+  }
+};
+
+const substract = function () {
+  outputArray.push(output.innerHTML);
+  if (output.innerHTML != "0") {
+    output.innerHTML = "";
+    action = btnMinus.innerHTML;
 
     console.log(outputArray);
   }
@@ -51,14 +70,37 @@ const displayResult = function () {
   // condition to disable diplaying NaN if accidentaly pressed "=" twice
   if (outputArray.length === 0) return;
 
-  //   add second value to an array
+  //   add another value to an array
   outputArray.push(output.innerHTML);
+  console.log(outputArray);
 
   //   Depend on what action have been selected during choosing numbers
+
+  // ADD
   if (action === "+") {
-    output.innerHTML = outputArray[0] * 1 + outputArray[1] * 1;
+    let sum = 0;
+    for (let i = 0; i < outputArray.length; i++) {
+      sum += outputArray[i] * 1;
+      console.log(sum);
+    }
+    output.innerHTML = sum;
+
+    // DIVIDE
   } else if (action === "/") {
+    // round to 2 places after coma
+    // fix to work on few divide btn clicks
+    output.innerHTML = ((outputArray[0] * 1) / outputArray[1]) * 1;
+
+    // SUBSTRACT
   } else if (action === "-") {
+    let sub = outputArray[0];
+    console.log(sub);
+    for (let i = 1; i < outputArray.length; i++) {
+      sub -= outputArray[i] * 1;
+    }
+    output.innerHTML = sub;
+
+    // MULTIPLY
   } else if (action === "x") {
   }
 
@@ -80,8 +122,9 @@ btns.forEach((btn) =>
   })
 );
 
-// bind used to pass argument without calling function
-btnPlus.addEventListener("click", add.bind(outputArray));
+btnPlus.addEventListener("click", add);
+btnDivide.addEventListener("click", divide);
+btnMinus.addEventListener("click", substract);
 
 btnResult.addEventListener("click", displayResult);
 
