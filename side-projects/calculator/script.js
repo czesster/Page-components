@@ -88,23 +88,22 @@ const displayResult = function () {
 
   // ADD
   if (action === "+") {
-    let sum = outputArray[0] * 1;
-    for (let i = 1; i < outputArray.length; i++) {
-      sum += outputArray[i] * 1;
-      console.log(sum);
-    }
-    output.innerHTML = sum;
+    // let sum = outputArray[0] * 1;
+    // for (let i = 1; i < outputArray.length; i++) {
+    //   sum += outputArray[i] * 1;
+    //   console.log(sum);
+    // }
+    output.innerHTML = outputArray.reduce((acc, cur) => acc * 1 + cur * 1);
+    // output.innerHTML = sum;
 
     // DIVIDE
   } else if (action === "/") {
-    // round to 2 places after coma
-    // fix to work on few divide btn clicks
     let div = outputArray[0] * 1;
     console.log(div);
     for (let i = 1; i < outputArray.length; i++) {
       div /= outputArray[i] * 1;
     }
-    output.innerHTML = div;
+    output.innerHTML = div.toFixed(2);
 
     // SUBSTRACT
   } else if (action === "-") {
