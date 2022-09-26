@@ -17,41 +17,36 @@ let action;
 
 const add = function () {
   outputArray.push(output.innerHTML);
-  if (output.innerHTML != "0") {
-    output.innerHTML = "";
-    action = btnPlus.innerHTML;
-    console.log(outputArray);
-  }
+
+  output.innerHTML = "";
+  action = btnPlus.innerHTML;
+  console.log(outputArray);
 };
 
 const divide = function () {
   outputArray.push(output.innerHTML);
-  if (output.innerHTML != "0") {
-    output.innerHTML = "";
-    action = btnDivide.innerHTML;
 
-    console.log(outputArray);
-  }
+  output.innerHTML = "";
+  action = btnDivide.innerHTML;
+
+  console.log(outputArray);
 };
 
 const substract = function () {
   outputArray.push(output.innerHTML);
-  if (output.innerHTML != "0") {
-    output.innerHTML = "";
-    action = btnMinus.innerHTML;
 
-    console.log(outputArray);
-  }
+  output.innerHTML = "";
+  action = btnMinus.innerHTML;
+
+  console.log(outputArray);
 };
 
 const multiply = function () {
   outputArray.push(output.innerHTML);
-  if (output.innerHTML != "0") {
-    output.innerHTML = "";
-    action = btnMultiply.innerHTML;
+  output.innerHTML = "";
+  action = btnMultiply.innerHTML;
 
-    console.log(outputArray);
-  }
+  console.log(outputArray);
 };
 
 const displayResult = function () {
@@ -81,7 +76,9 @@ const displayResult = function () {
 
     // MULTIPLY
   } else if (action === "x") {
-    output.innerHTML = outputArray.reduce((acc, cur) => acc * 1 * cur * 1);
+    output.innerHTML = +outputArray
+      .reduce((acc, cur) => acc * 1 * cur * 1)
+      .toFixed(2);
   }
 
   //   clear array for new operations
@@ -96,6 +93,7 @@ btns.forEach((btn) =>
     output.innerHTML === "0"
       ? (output.innerHTML = btn.innerHTML)
       : (output.innerHTML += btn.innerHTML);
+
     console.log(outputArray);
   })
 );
@@ -110,4 +108,12 @@ btnResult.addEventListener("click", displayResult);
 btnClear.addEventListener("click", function () {
   output.innerHTML = 0;
   outputArray = [];
+});
+
+btnDelete.addEventListener("click", function () {
+  if (output.innerHTML.slice(0, -1) === "") {
+    output.innerHTML = 0;
+  } else {
+    output.innerHTML = output.innerHTML.slice(0, -1);
+  }
 });
