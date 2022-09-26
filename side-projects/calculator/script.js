@@ -13,40 +13,76 @@ const btnClear = document.querySelector(".btn--c");
 const output = document.querySelector(".output-text");
 
 let outputArray = [];
-let action;
+let action = "";
+
+const operation = function (op) {
+  if (action && action !== op.path[0].innerHTML) {
+    action = op.path[0].innerHTML;
+    console.log(`this is different ${action}`);
+  } else {
+    outputArray.push(output.innerHTML);
+
+    output.innerHTML = "";
+    action = op.path[0].innerHTML;
+    console.log(outputArray);
+    console.log(action);
+  }
+};
 
 const add = function () {
-  outputArray.push(output.innerHTML);
+  // condition needed to change action you want to execute after selecting another action
+  if (action) {
+    action = btnPlus.innerHTML;
+  } else {
+    outputArray.push(output.innerHTML);
 
-  output.innerHTML = "";
-  action = btnPlus.innerHTML;
-  console.log(outputArray);
+    output.innerHTML = "";
+    action = btnPlus.innerHTML;
+
+    console.log(outputArray);
+    console.log(action);
+  }
 };
 
 const divide = function () {
-  outputArray.push(output.innerHTML);
+  if (action) {
+    action = btnDivide.innerHTML;
+  } else {
+    outputArray.push(output.innerHTML);
 
-  output.innerHTML = "";
-  action = btnDivide.innerHTML;
+    output.innerHTML = "";
+    action = btnDivide.innerHTML;
 
-  console.log(outputArray);
+    console.log(outputArray);
+    console.log(action);
+  }
 };
 
 const substract = function () {
-  outputArray.push(output.innerHTML);
+  if (action) {
+    action = btnMinus.innerHTML;
+  } else {
+    outputArray.push(output.innerHTML);
 
-  output.innerHTML = "";
-  action = btnMinus.innerHTML;
+    output.innerHTML = "";
+    action = btnMinus.innerHTML;
 
-  console.log(outputArray);
+    console.log(outputArray);
+    console.log(action);
+  }
 };
 
 const multiply = function () {
-  outputArray.push(output.innerHTML);
-  output.innerHTML = "";
-  action = btnMultiply.innerHTML;
+  if (action) {
+    action = btnMultiply.innerHTML;
+  } else {
+    outputArray.push(output.innerHTML);
+    output.innerHTML = "";
+    action = btnMultiply.innerHTML;
 
-  console.log(outputArray);
+    console.log(outputArray);
+    console.log(action);
+  }
 };
 
 const displayResult = function () {
@@ -64,7 +100,7 @@ const displayResult = function () {
 
     // DIVIDE
   } else if (action === "/") {
-    // + in the beggining explaination:
+    // + in the beginning explaination:
     // https://stackoverflow.com/a/12830454
     output.innerHTML = +outputArray
       .reduce((acc, cur) => ((acc * 1) / cur) * 1)
@@ -81,7 +117,8 @@ const displayResult = function () {
       .toFixed(2);
   }
 
-  //   clear array for new operations
+  //   clear array and action for new operations
+  action = "";
   outputArray = [];
   console.log(outputArray);
 };
@@ -98,10 +135,10 @@ btns.forEach((btn) =>
   })
 );
 
-btnPlus.addEventListener("click", add);
-btnDivide.addEventListener("click", divide);
-btnMinus.addEventListener("click", substract);
-btnMultiply.addEventListener("click", multiply);
+btnPlus.addEventListener("click", operation.bind(btnPlus));
+btnDivide.addEventListener("click", operation.bind(btnDivide));
+btnMinus.addEventListener("click", operation.bind(btnMinus));
+btnMultiply.addEventListener("click", operation.bind(btnMultiply));
 
 btnResult.addEventListener("click", displayResult);
 
