@@ -1,5 +1,8 @@
 "use strict";
 
+// TO DO
+// Add small window above result to display current array elements and operation between (.join?)
+
 const btns = document.querySelectorAll(".btn--number");
 
 const btnResult = document.querySelector(".btn--res");
@@ -11,7 +14,9 @@ const btnDelete = document.querySelector(".btn--del");
 const btnClear = document.querySelector(".btn--c");
 
 const output = document.querySelector(".output-text");
+const outputMem = document.querySelector(".output-mem");
 
+outputMem.innerHTML = "0";
 let outputArray = [];
 let action = "";
 
@@ -20,6 +25,7 @@ const operation = function (op) {
     action = op.path[0].innerHTML;
     console.log(`this is different ${action}`);
   } else {
+    outputMem.innerHTML = output.innerHTML;
     outputArray.push(output.innerHTML);
 
     output.innerHTML = "";

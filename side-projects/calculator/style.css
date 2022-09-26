@@ -50,8 +50,9 @@ html {
   padding: 2rem;
 
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
 
   width: 85%;
   height: 15rem;
@@ -62,6 +63,18 @@ html {
   border: 0.4rem solid #c8ced4;
 
   font-size: 8rem;
+}
+
+/* so the output-mem won't fall under main output */
+.output::after {
+  content: "";
+  height: 15rem;
+}
+
+.output-mem {
+  font-size: 2.6rem;
+
+  margin: -1.6rem 0;
 }
 
 /* ########################################### */
