@@ -15,10 +15,11 @@ const btnDivide = document.querySelector(".btn--div");
 const btnDelete = document.querySelector(".btn--del");
 const btnClear = document.querySelector(".btn--c");
 
+const outputContainer = document.querySelector(".output");
 const output = document.querySelector(".output-text");
 const outputMem = document.querySelector(".output-mem");
 
-let outputArray, action;
+let outputArray, action, result;
 
 // init
 const init = function () {
@@ -68,27 +69,38 @@ const displayResult = function () {
   //   Depend on what action have been selected during choosing numbers
   // ADD
   if (action === "+") {
-    output.innerHTML = outputArray.reduce((acc, cur) => acc * 1 + cur * 1);
+    result = outputArray.reduce((acc, cur) => acc * 1 + cur * 1);
 
     // DIVIDE
   } else if (action === "/") {
     // + in the beginning explaination:
     // https://stackoverflow.com/a/12830454
-    output.innerHTML = +outputArray
+    result = +outputArray
       .reduce((acc, cur) => ((acc * 1) / cur) * 1)
       .toFixed(2);
 
     // SUBSTRACT
   } else if (action === "-") {
-    output.innerHTML = outputArray.reduce((acc, cur) => acc * 1 - cur * 1);
+    result = +outputArray.reduce((acc, cur) => acc * 1 - cur * 1).toFixed(5);
 
     // MULTIPLY
   } else if (action === "x") {
-    output.innerHTML = +outputArray
-      .reduce((acc, cur) => acc * 1 * cur * 1)
-      .toFixed(2);
+    result = +outputArray.reduce((acc, cur) => acc * 1 * cur * 1).toFixed(5);
   }
 
+  if (String(result).length > 7) {
+    result = "Err";
+  }
+
+  // need to change display restriction to window width rather than digit count
+  // if (
+  //   output.getBoundingClientRect.width >
+  //   0.8 * outputContainer.getBoundingClientRect.width
+  // ) {
+  //   result = "Err";
+  // }
+
+  output.innerHTML = result;
   //   clear array and action for new operations
   action = "";
   outputArray = [];
@@ -99,11 +111,16 @@ const displayResult = function () {
 // EVENT LISTENERS
 btns.forEach((btn) =>
   btn.addEventListener("click", function () {
-    output.innerHTML === "0"
-      ? (output.innerHTML = btn.innerHTML)
-      : (output.innerHTML += btn.innerHTML);
+    if (output.innerHTML.length < 7 && outputMem.innerHTML.length <= 16) {
+      output.innerHTML === "0"
+        ? (output.innerHTML = btn.innerHTML)
+        : (output.innerHTML += btn.innerHTML);
 
-    console.log(outputArray);
+      console.log(outputArray);
+    }
+    if (outputMem.innerHTML.length >= 16) {
+      displayResult();
+    }
   })
 );
 
@@ -121,6 +138,9 @@ btnClear.addEventListener("click", function () {
 });
 
 btnDelete.addEventListener("click", function () {
+  // condition to stop user from deleting letters from 'Err'
+  if (!Number(output.innerHTML)) return;
+
   if (output.innerHTML.slice(-1) === "") {
     output.innerHTML = 0;
     outputMem.innerHTML = 0;
